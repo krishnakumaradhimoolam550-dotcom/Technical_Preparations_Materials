@@ -1,0 +1,57 @@
+1) introduce your self   
+
+2) Current project Architecture and your roles.   Explain with  VISIO tool - Design diagram
+
+3)  Micro Service Architecture  small, independant, api driven, it is easier to scale, maintain, deploy it bring flexibility and reilience but it requires careful handling of complexity, communication and security.
+
+Advantage - fast dev, ind deploy, better maintain/test, resilience, single business capability, scalability, loosly coupling, tech flexibility.
+
+challenges - Communication ( API/messages ), Security, each service -> each DB, complexity -> many services need DevOps practices.
+
+4) API Gate way functionalities 
+
+Advantages - single entry point, routing other services, security auth & author, protocals handling, collect all responses and send consolidated one, load balancing, rate limiting, security - SSL, validations and protect attacks, caching, monitor and logging.
+
+Challenges - single entry point failures ( use redundancy and clustering ),
+performance overhead ( auth, logging and caching ) and careful monitoring and configuration.
+
+5) Spring Batch  framework - end to end flow 
+
+Bulk data process, Job, steps, Item reader, pross and writer, JobRepo, JobLaunch, trans manag, chuck processing, error handling and retries, conditional flow and Job scheduling.
+
+6) How to schedule Batch Jobs 
+
+@EnableScheduling annotation spring boot app, @Scheduled annotation at method level with Cron and fixedRate, JobLauncher.run( ) to trigger jobs, Quartz can be used for moderate set up, job chaining/clustering and external scheduler also can be used with flexible.
+
+7 )How to trigger events  and handle notification in KAFKA 
+
+Add dependancy spring kafka, Kafkatemple - publich msgs, define topics,  create consumers to listen topics using kafkalisters (topic and groupdId), handle notifications,  error handling, test the flow and scale the consumers to receive more messages.
+
+To handle proper, idempotnecy=true to avoid duplicate messages, message format, SASL authentication, SSL to handle encryption and decryption.
+
+8) How to handle request, response and exception handling in integration of API Gate way to Spring Batch framework  
+
+single entry point, API gateway - > spring boot app -> Job launcher -> return Job started as Ack,  Asynchronous response job status endpoint and structed json response and error handling.
+
+9) How to handle multiple Topics in multi cluster environment
+
+Producer factory, consumer factory, containerfactory for listener, producer idempotency  true, consumer idempotency to handle code logic for DB check to avoid duplicate. topic name should be unique for each cluster. separate to handle error handling, notifications, security set up.
+
+multiple bootstrap server to configure for multiple clusters.
+
+Would you like me to show you a code snippet of how to configure multiple KafkaTemplate and @KafkaListener beans in Spring Boot for multi-cluster handling?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
